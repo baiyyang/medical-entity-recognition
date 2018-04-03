@@ -11,8 +11,10 @@ from data import read_corpus, read_dictionary, tag2label, random_embedding
 
 # hyperparameters
 parser = argparse.ArgumentParser(description='BiLSTM-CRF for Chinese NER task')
-parser.add_argument('--train_data', type=str, default='../train_test_data', help='train raw_data source')
-parser.add_argument('--test_data', type=str, default='../train_test_data', help='test raw_data source')
+parser.add_argument('--data_dir', type=str, default='../train_test_data', help='raw_data dir source')
+parser.add_argument('--dictionary', type=str, default='word2id.pkl', help='dictionary source')
+parser.add_argument('--train_data', type=str, default='train_bio_word.txt', help='train raw_data source')
+parser.add_argument('--test_data', type=str, default='test_bio_word.txt', help='test raw_data source')
 parser.add_argument('--batch_size', type=int, default=64, help='#sample of each minibatch')
 parser.add_argument('--epoch', type=int, default=100, help='#epoch of training')
 parser.add_argument('--hidden_dim', type=int, default=300, help='#dim of hidden state')
@@ -27,12 +29,12 @@ parser.add_argument('--pretrain_embedding', type=str, default='random',
 parser.add_argument('--embedding_dim', type=int, default=300, help='random init char embedding_dim')
 parser.add_argument('--shuffle', type=str2bool, default=True, help='shuffle training raw_data before each epoch')
 parser.add_argument('--mode', type=str, default='demo', help='train/test/demo')
-parser.add_argument('--demo_model', type=str, default='1499785642', help='model for test and demo')
+parser.add_argument('--demo_model', type=str, default='random_word_300', help='model for test and demo')
 parser.add_argument('--embedding_dir', type=str, default='../word2vector', help='embedding files dir')
 args = parser.parse_args()
 
 # get char embeddings
-word2id = read_dictionary(os.path.join('.', args.train_data, 'word2id.pkl'))
+word2id = read_dictionary(os.path.join('.', args.data_dir, args.dictionary))
 if args.pretrain_embedding == 'random':
     embeddings = random_embedding(word2id, args.embedding_dim)
 else:
@@ -42,8 +44,8 @@ else:
 # read corpus and get training raw_data
 # 读取数据
 if args.mode != 'demo':
-    train_path = os.path.join('.', args.train_data, 'train_bio_word.txt')
-    test_path = os.path.join('.', args.test_data, 'test_bio_word.txt')
+    train_path = os.path.join('.', args.data_dir, args.train_data)
+    test_path = os.path.join('.', args.data_dir, args.test_data)
     train_data = read_corpus(train_path)
     test_data = read_corpus(test_path)
     test_size = len(test_data)

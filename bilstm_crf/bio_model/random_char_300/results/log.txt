@@ -609,3 +609,8 @@
 2018-04-01 19:00:31,401:INFO: =========== testing ===========
 2018-04-01 19:00:31,401:INFO: Restoring parameters from ./bio_model/random_char/checkpoints/model-4400
 2018-04-01 19:00:31,401:INFO: Restoring parameters from ./bio_model/random_char/checkpoints/model-4400
+2018-04-03 22:14:43,484:INFO: Namespace(CRF=True, batch_size=64, clip=5.0, data_dir='../train_test_data', demo_model='random_char_300', dictionary='char2id.pkl', dropout=0.5, embedding_dim=300, embedding_dir='../word2vector', epoch=100, hidden_dim=300, lr=0.001, mode='test', optimizer='Adam', pretrain_embedding='random', shuffle=True, test_data='test_bio_char.txt', train_data='train_bio_char.txt', update_embedding=True)
+2018-04-03 22:14:45,662:INFO: =========== testing ===========
+2018-04-03 22:14:45,662:INFO: =========== testing ===========
+2018-04-03 22:14:45,663:INFO: Restoring parameters from ./bio_model/random_char_300/checkpoints/model-4400
+2018-04-03 22:14:45,663:INFO: Restoring parameters from ./bio_model/random_char_300/checkpoints/model-4400

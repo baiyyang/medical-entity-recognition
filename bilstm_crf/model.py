@@ -3,13 +3,11 @@ import os
 import time
 import sys
 import tensorflow as tf
-from predata import get_entity
 from tensorflow.contrib.rnn import LSTMCell
 from tensorflow.contrib.crf import crf_log_likelihood
 from tensorflow.contrib.crf import viterbi_decode
-from data import pad_sequences, batch_yield
+from data import pad_sequences, batch_yield, get_entity
 from utils import get_logger
-from eval import conlleval
 from sklearn.metrics import classification_report
 from sklearn.preprocessing import LabelBinarizer
 

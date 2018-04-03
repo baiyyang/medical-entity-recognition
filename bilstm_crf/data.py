@@ -34,7 +34,7 @@ def read_corpus(corpus_path):
     sent_, tag_ = [], []
     for line in lines:
         if line != '\n':
-            if len(line.strip().split('\t')) == 3:
+            if len(line.strip().split('\t')) != 0:
                 fields = line.strip().split('\t')
                 char = fields[0]
                 label = fields[-1]
@@ -171,6 +171,37 @@ def batch_yield(data, batch_size, vocab, tag2label, shuffle=False):
 
     if len(seqs) != 0:
         yield seqs, labels
+
+
+def get_entity(tag_seq, char_seq, keys):
+    """
+    返回实体类别
+    :param tag_seq:
+    :param char_seq:
+    :param keys: key为list，表示返回需要的类别名称
+    :return:
+    """
+    # entity = get_entity_one_(tag_seq, char_seq)
+    # return entity
+    entity = []
+    for key in keys:
+        entity.append(get_entity_key(tag_seq, char_seq, key))
+    return entity
+
+
+def get_entity_key(tag_seq, char_seq, key):
+    entities = []
+    entity = ''
+    for (char, tag) in zip(char_seq, tag_seq):
+        if tag == 'B-' + key or tag == 'I-' + key or tag == 'E-' + key:
+            entity += char
+        else:
+            if len(entity) != 0:
+                entities.append(entity)
+                entity = ''
+    if len(entity) != 0:
+        entities.append(entity)
+    return entities
 
 
 if __name__ == '__main__':

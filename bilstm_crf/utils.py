@@ -63,10 +63,3 @@ def get_logger(filename):
     logging.getLogger().addHandler(handler)
     return logger
 
-
-if __name__ == '__main__':
-    tag_seq = ['B', 'I', 'I', 'O', 'O', 'O', 'B', 'I', 'I']
-    char_seq = ['白', '恩', '洋', '来', '自', '于', '内', '蒙', '古']
-    result = get_entity_one_(tag_seq, char_seq)
-    print(result)
-
