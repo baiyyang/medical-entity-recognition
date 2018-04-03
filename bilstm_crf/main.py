@@ -32,7 +32,7 @@ parser.add_argument('--embedding_dir', type=str, default='../word2vector', help=
 args = parser.parse_args()
 
 # get char embeddings
-word2id = read_dictionary(os.path.join('.', args.embedding_dir, 'word2id.pkl'))
+word2id = read_dictionary(os.path.join('.', args.train_data, 'word2id.pkl'))
 if args.pretrain_embedding == 'random':
     embeddings = random_embedding(word2id, args.embedding_dim)
 else:

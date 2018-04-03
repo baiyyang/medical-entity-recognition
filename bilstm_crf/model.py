@@ -361,7 +361,6 @@ class BiLSTM_CRF(object):
             y_test.extend([y for y in label])
         for label in label_list:
             y_pred.extend([label2tag[y] for y in label])
-        print(y_pred[:100])
         entity = ['BODY', 'CHECK', 'DISEASE', 'SIGNS', 'TREATMENT']
         entities_pred = get_entity(y_pred, contents, entity)
         entities_true = get_entity(y_test, contents, entity)
