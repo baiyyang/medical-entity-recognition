@@ -13,11 +13,11 @@
 
 3. crf文件夹是使用CRF进行命名实体识别的模型，其中medical_entity_recognition_bio_char_ori.crfsuite和medical_entity_recognition_bio_word_ori.crfsuite分别是训练好的，以字为特征单元和词为特征单元的模型。
 
-4. bilstm_crf文件夹中是基于神经网络的命名实体识别的模型。其中，bio_model下存放的是已经训练好的两个模型。分别是随机初始化embedding的字向量和词向量的模型。
-其中，训练新的模型方法：
+4. bilstm_crf文件夹中是基于神经网络的命名实体识别的模型。其中，bio_model下存放的是已经训练好的两个模型。分别是随机初始化embedding的字向量和词向量的模型。其中:
+  - 训练新的模型方法：
 > python main.py --mode train --data_dir *** --train_data *** --test_data *** --dictionary ***
 
-测试已有模型方法:
+  - 测试已有模型方法:
 > python main.py --mode test --data_dir ../train_test_data --train_data train_bio_char.txt --test_data test_bio_char.txt --dictionary char2id.pkl --demo_model random_char_300
 
 ## Requirements
