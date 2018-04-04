@@ -28,9 +28,8 @@ def readData(filename):
     return data
 
 
-testpath = '/Users/baiyyang/PycharmProjects/python3/medical_entity_recognition/train_test_data/test_bio_word.txt'
-trainpath = '/Users/baiyyang/PycharmProjects/python3/medical_entity_recognition/train_test_data/train_bio_word.txt'
-# devpath = '/Users/baiyyang/PycharmProjects/python3/medical_entity_recognition/general_data/example.dev'
+testpath = ''
+trainpath = ''
 
 
 test = readData(testpath)
