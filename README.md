@@ -7,7 +7,7 @@
 2. 基于双向长短时记忆神经网络和条件随机场(Bi-LSTM-CRF)的命名实体识别。
 
 ## Introduce
-1. raw_data是原始数据，来源于[CCKS2017](http://www.ccks2017.com/)任务二中，针对医疗电子病例进行命名实体识别。reader.py文件是对原始数据进行处理，生成标准的NER格式(data, pos, label)的数据。
+1. raw_data是原始数据，来源于[CCKS2017](http://www.ccks2017.com/en/index.php/sharedtask/)任务二中，针对医疗电子病例进行命名实体识别。reader.py文件是对原始数据进行处理，生成标准的NER格式(data, pos, label)的数据。
 
 2. train_test_data是模型的训练和测试的语料，其中word2id.pkl和char2id.pkl是神经网络中需要读入的字典。
 
