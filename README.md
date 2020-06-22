@@ -24,6 +24,7 @@
 python 3
 
 pycrfsuite：pip install python-crfsuite
+
 zhon：pip install zhon
 
 tensorflow >= 1.4
